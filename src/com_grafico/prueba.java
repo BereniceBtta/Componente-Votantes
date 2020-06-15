@@ -16,8 +16,10 @@ public class prueba extends javax.swing.JFrame {
        String[] elementosP= {"elemento1","elemento2","elemento3"};
         int[] num= {10,20,30};
         
-    Grafico p= new Grafico("Elementos de prueba",elementosP);
-       
+        String[] elementosP2= {"elemento1","elemento2"};
+        int[] num2= {10,20};
+        
+    
        
         
     /**
@@ -25,11 +27,22 @@ public class prueba extends javax.swing.JFrame {
      */
     public prueba() {
         initComponents();
-        this.
+       
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        
+        Grafico p= new Grafico("elementos", elementosP);
         p.setVals(num);
-        p.setSize(this.getWidth(),this.getHeight());
+        p.setSize(400, 300);
         p.setVisible(true);
-        this.add(p);
+        add(p);     
+        
+        
+//        Grafico p2= new Grafico("elementos", elementosP2);
+//        p2.setVals(num2);
+//        p2.setSize(400, 300);
+//        p2.setVisible(true);
+//        add(p2);   
+        
         
         
     }

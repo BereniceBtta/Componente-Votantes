@@ -20,9 +20,8 @@ public class Grafico extends JComponent implements Serializable{
         
     private int nfiguras;
     private JLabel etis[];
-    private int vals[]= {0,0,0};
-    int[] num= {10,20,30};
-    private static final Color color [] = {Color.BLUE, 
+    private int vals[]={0,0,0,0};
+    private static final Color color[] = {Color.BLUE, 
         Color.GREEN, Color.CYAN,Color.YELLOW,
         Color.PINK,Color.WHITE,Color.RED, 
         Color.ORANGE,Color.MAGENTA};
@@ -30,16 +29,20 @@ public class Grafico extends JComponent implements Serializable{
     private static JLabel  colorB[];
     private JLabel titulo;
     private String tTitulo;
-    private String  tLeyenda[];
+    private String  tLeyenda[]={"","","",""};
 
     public Grafico() {
-        this.titulo = new JLabel("");
-        this.etis = new JLabel[0];
-        leyendaBarra =  new JLabel[0];
-        colorB = new JLabel[0];
-        this.tLeyenda =  new String[0];  
+        titulo = new JLabel("");
+        etis = new JLabel[0];
+        leyendaBarra = new JLabel[tLeyenda.length];
+        colorB= new JLabel[0];
+        tLeyenda = new String[tLeyenda.length];
+        tTitulo= "Sin valores Definidos";
         nfiguras= vals.length;
-        this.setVals(vals);
+        
+        iniciarElementos();
+        setLeyendas(this.tLeyenda);
+        setVals(vals);
     }
 
     public Grafico(String tTitulo, String[] tLeyenda) {
@@ -114,8 +117,6 @@ public class Grafico extends JComponent implements Serializable{
        
     }
 
-   
- 
     
     @Override
 public void paintComponent(Graphics f){
@@ -149,26 +150,9 @@ public void paintComponent(Graphics f){
            f.fill3DRect(separa+i*(anchoB+separa), (alto-(20*colorB.length))-vals[i]*5, anchoB, vals[i]*5, true);
           
              
-       }
-       
-
-
-       
-       
+       }     
 } 
-    
-    public static void main( String [] args){
-        String[] elementosP= {"elemento1","elemento2","elemento3"};
-        int[] num= {10,20,30};
-        JFrame frame = new JFrame("Prueba");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        Grafico p= new Grafico("elementos", elementosP);
-        p.setVals(num);
-        p.setSize(400, 300);
-        p.setVisible(true);
-        frame.add(p);      
-        frame.setSize(600,600);
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
-    }
+   
+
+   
 }
